@@ -30,6 +30,7 @@ use Gitlab\HttpClient\Listener\PaginationListener;
  * @property-read \Gitlab\Api\SystemHooks $hooks
  * @property-read \Gitlab\Api\SystemHooks $system_hooks
  * @property-read \Gitlab\Api\Users $users
+ * @property-read \Gitlab\Api\DeployKeys $deploy_keys
  */
 class Client
 {
@@ -144,6 +145,10 @@ class Client
 
             case 'users':
                 $api = new Api\Users($this);
+                break;
+
+            case 'deploy_keys':
+                $api = new Api\DeployKeys($this);
                 break;
 
             default:
